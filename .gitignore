@@ -1,0 +1,41 @@
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+
+# Build outputs
+target/
+build/
+dist/
+*.class
+*.jar
+*.war
+
+# Maven
+.mvn/
+mvnw*
+
+# Node.js (Frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~

@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: story-factory
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/story_factory?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 
+
+  ai:
+    alibaba:
+      chat:
+        options:
+          model: qwen-max
+      # API Key should be set via environment variable: SPRING_AI_ALIBABA_API_KEY
+    vectorstore:
+      milvus:
+        client:
+          uri: http://localhost:19530
+          token: 
+        collection-name: story_embeddings
+        dimension: 1536
+
+logging:
+  level:
+    com.storyfactory: debug
+    org.springframework.ai: debug

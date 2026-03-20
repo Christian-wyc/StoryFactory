@@ -1,117 +1,138 @@
 <template>
-  <div class="home-container">
-    <el-card class="welcome-card">
-      <template #header>
-        <div class="card-header">
-          <span>欢迎使用 StoryFactory</span>
-        </div>
-      </template>
-      <div class="welcome-content">
-        <h2>小说制造工厂</h2>
-        <p>从灵感到完本，用工程化思维解决 AI 写长篇小说的"逻辑崩坏"与"失忆"痛点。</p>
-        <div class="feature-list">
-          <el-col :span="8">
-            <el-card shadow="hover">
-              <div class="feature-icon">📝</div>
-              <h3>智能大纲</h3>
-              <p>基于 AI 生成详细的小说大纲，确保剧情逻辑连贯</p>
-            </el-card>
-          </el-col>
-          <el-col :span="8">
-            <el-card shadow="hover">
-              <div class="feature-icon">🎭</div>
-              <h3>人物设定</h3>
-              <p>创建丰富的人物角色，自动追踪人物关系和发展</p>
-            </el-card>
-          </el-col>
-          <el-col :span="8">
-            <el-card shadow="hover">
-              <div class="feature-icon">🌍</div>
-              <h3>世界构建</h3>
-              <p>构建完整的世界观，包括地理、历史、文化等设定</p>
-            </el-card>
-          </el-col>
-        </div>
-        <div class="action-buttons">
-          <el-button type="primary" size="large" @click="createNovel">创建新小说</el-button>
-          <el-button type="success" size="large" @click="manageNovels">管理小说</el-button>
-        </div>
+  <div class="notion-home">
+    <div class="hero-section">
+      <h1 class="page-title">小说制造工厂</h1>
+      <p class="page-desc">基于工程化思维构建的长篇小说创作流水线。从灵感到完本，拒绝剧情崩坏。</p>
+      <div class="action-row">
+        <el-button type="primary" size="large" @click="$router.push('/novel')">
+          <span class="btn-icon">✨</span> 新建小说
+        </el-button>
+        <el-button size="large" @click="$router.push('/novel')">
+          浏览项目库
+        </el-button>
       </div>
-    </el-card>
+    </div>
+
+    <el-divider class="nt-divider"></el-divider>
+
+    <div class="modules-section">
+      <h2 class="section-title">核心车间</h2>
+
+      <el-row :gutter="24">
+        <el-col :span="8">
+          <el-card class="module-card" shadow="hover" @click="$router.push('/outline')">
+            <div class="card-icon">🌳</div>
+            <h3>智能大纲</h3>
+            <p>基于架构引擎生成三层递归逻辑链，确保故事结构严密且连贯。</p>
+          </el-card>
+        </el-col>
+
+        <el-col :span="8">
+          <el-card class="module-card" shadow="hover" @click="$router.push('/character')">
+            <div class="card-icon">🎭</div>
+            <h3>角色设定</h3>
+            <p>构建包含动机、性格缺陷与隐藏秘密的结构化人物档案。</p>
+          </el-card>
+        </el-col>
+
+        <el-col :span="8">
+          <el-card class="module-card" shadow="hover" @click="$router.push('/world')">
+            <div class="card-icon">🌍</div>
+            <h3>世界构建</h3>
+            <p>定义物理规则、地理风貌与力量体系，打造沉浸式背景。</p>
+          </el-card>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home',
-  methods: {
-    createNovel() {
-      this.$router.push('/novel')
-    },
-    manageNovels() {
-      this.$router.push('/novel')
-    }
-  }
+  name: 'Home'
 }
 </script>
 
 <style scoped>
-.home-container {
-  padding: 20px;
+.notion-home {
+  padding-top: 20px;
+  animation: fadeIn 0.5s ease;
 }
 
-.welcome-card {
-  max-width: 1200px;
-  margin: 0 auto;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.card-header {
+.hero-section {
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px 0;
+  color: var(--nt-text-main);
+}
+
+.page-desc {
   font-size: 18px;
-  font-weight: bold;
+  color: var(--nt-text-muted);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 0 32px 0;
 }
 
-.welcome-content {
-  text-align: center;
-}
-
-.welcome-content h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #303133;
-}
-
-.welcome-content p {
-  font-size: 16px;
-  color: #606266;
-  margin-bottom: 40px;
-}
-
-.feature-list {
+.action-row {
   display: flex;
-  gap: 20px;
-  margin-bottom: 40px;
+  gap: 16px;
 }
 
-.feature-icon {
-  font-size: 48px;
+.btn-icon {
+  margin-right: 6px;
+}
+
+.nt-divider {
+  border-top-color: var(--nt-border);
+  margin: 40px 0;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+  color: var(--nt-text-main);
+}
+
+.module-card {
+  cursor: pointer;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.module-card:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 4px 12px !important;
+}
+
+.card-icon {
+  font-size: 32px;
   margin-bottom: 16px;
 }
 
-.feature-list h3 {
-  font-size: 18px;
-  margin-bottom: 12px;
-  color: #303133;
+.module-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
 }
 
-.feature-list p {
+.module-card p {
   font-size: 14px;
-  color: #606266;
-  margin-bottom: 0;
-}
-
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  color: var(--nt-text-muted);
+  line-height: 1.5;
+  margin: 0;
 }
 </style>

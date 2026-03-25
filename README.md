@@ -48,13 +48,13 @@
 ## 💻 三、 技术栈选型
 
 * **核心框架**：Spring Boot 3.4+ / Spring AI Alibaba (最新版)
-* **大模型编排**：Spring AI Alibaba Graph (实现 Agent 状态流转)
-* **主流模型**：DeepSeek V3/R1 (逻辑层), 通义千问 Qwen-Max (文本层)
-* **数据库**：
-    * **关系型**：MySQL 8.0 (业务数据、WSM 状态机)
-    * **向量库**：Milvus 2.x (长期记忆、背景设定)
-    * **缓存**：Redis (任务队列、Session 记忆)
-* **前端**：Vue 3 + Element Plus (管理后台)
+* **大模型编排**：Spring AI Alibaba Graph (实现 Agent 状态流转与 Function Calling)
+* **主流模型**：DeepSeek V3/R1 (逻辑推理与状态提取), 通义千问 Qwen-Max (高质量文本渲染)
+* **核心数据库矩阵 (The Brain 记忆基座)**：
+  * **多模态图数据库**：**ArangoDB** (绝对核心，接管 WSM 实体快照、复杂人际关系图谱、以及基于 Event Sourcing 的事件流水)
+  * **向量数据库**：**Milvus 2.x** (负责长期记忆、十几万字的世界观设定与历史剧情 RAG 检索)
+  * **高频缓存**：**Redis** (负责短对话上下文、Agent 记忆窗口与分布式锁)
+* **前端**：Vue 3 + Element Plus (管理后台与精修车间工作台)
 
 ---
 

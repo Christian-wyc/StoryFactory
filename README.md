@@ -3,66 +3,6 @@
 > **定位**：基于 **Spring AI Alibaba** 的工业化长篇小说创作流水线系统。
 > **核心理念**：将感性的创作拆解为理性的工程逻辑，解决 AI 创作长篇小说时的“逻辑崩坏”、“人设跑偏”与“爽点缺失”痛点。
 
-## 📁 项目结构
-
-```
-StoryFactory/
-├── backend/      # 后端代码
-│   ├── src/
-│   ├── .gitignore
-│   ├── LICENSE
-│   └── pom.xml
-├── frontend/     # 前端代码
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   ├── vite.config.js
-│   └── .gitignore
-├── .trae/
-├── docs/
-├── open-spec/
-├── .gitignore
-├── LICENSE
-└── README.md     # 保持在最外层
-```
-
----
-
-## 🚀 快速开始与使用指南 (How to Use)
-
-### 后端启动
-目前我们已经完成了 **编剧模块 (The Architect)** 的核心开发。详细的本地启动步骤和接口测试指南（包含完整的“一句话生成世界观和大纲”测试流程），请查阅：
-
-👉 [QUICK_START.md](./docs/QUICK_START.md)
-
-### 前端启动
-1. **进入前端目录**
-   ```bash
-   cd frontend
-   ```
-
-2. **安装依赖**
-   ```bash
-   npm install
-   ```
-
-3. **启动开发服务器**
-   ```bash
-   npm run dev
-   ```
-
-4. **访问前端页面**
-   打开浏览器访问：`http://localhost:3000`
-
-### 前端功能
-- **首页**：系统概览和快速入口
-- **小说管理**：创建、编辑、删除小说项目
-- **大纲编辑**：可视化编辑小说大纲，支持AI生成
-- **人物设定**：创建和管理角色信息
-- **世界构建**：构建小说世界观设定
-
----
-
 ## 🛠️ 一、 全模块系统架构
 
 本项目将小说生产划分为六大核心车间，通过 **Spring AI Alibaba Graph** 进行调度编排：
